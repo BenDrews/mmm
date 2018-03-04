@@ -19,13 +19,13 @@ public class Manager : MonoBehaviour {
 		public GameObject rightDialog;
 
 		private GameObject currAnimation;
-		private String momDialogL = "asidjfpiopjedsioajpfioeiopjedsioajpfioeiopjedsioajpfioeiopjedsioajpfioeiopjedsioajpfioeiopjedsioajpfioeiopjedsioajpfioeiopjedsioajpfioeiopjedsioajpfioefjpw";
-		private String momDialogR = "But in response lets not talkjfpiopjedsioajpfioeiopjedsioajpfioeiopjedsioajpfioeiopjedsioajpfioeiopjedsioajpfioeiopjedsioajpfio";
+		private String momDialogL = "This is Mrs. ✖✖. She left  ████  when she was ⓧⓧ years old, studied ☻ at ████ University, and entered the System in 19✖✖ for a better life. She currently does ✪ research at ████ Labs. She swears by the Dr. Jart+ Cicapair Tiger Grass Color Correcting Treatment SPF 30 for her daily skincare regimen and loves her new Zojirushi NSRNC10FZ rice cooker. She just wants Little ✖✖ to be happy.";
+		private String momDialogR = "COMMON SIDE EFFECTS \n- Supplanting place of offspring at Harvard.\n- Early elimination of competition in Math Science / Fine Arts Sector. \n- Relaying information to the System(s) overseas.\n- Chicken feet.";
 
-		private String dadDialogL = "This is Mr. ✖✖. He left ██████ when he was ⓧⓧ years old, studied☻ at ████ University, and entered the System in 19✖✖. He is currently a software engineer for ████ Corporation. His financially stable life, loving family, and brand new [sports car] brings him happiness. He just wants Little ✖✖ to go to a good college.";
-		private String dadDialogR = "dad on the right!";
-		private String kidDialogL = "left kid is left out";
-		private String kidDialogR = "right kid is correct";
+		private String dadDialogL = "This is Mr. ✖✖. He left ██████ when he was ⓧⓧ years old, studied ☻ at ████ University, and entered the System in 19✖✖ for a better life. He is currently a software engineer for ████ Corporation. His financially stable life, loving family, and brand new BMW X5 brings him happiness. He just wants Little ✖✖ to succeed.";
+		private String dadDialogR = "PRODUCT DESCRIPTION \nThe Model M is the category of Yellow units operating within the System. The Model M function solely for support in the Math and Science sectors. Units function for approximately 65 years, after which productivity declines. The Model M Series: Li, Kim, Ito.";
+		private String kidDialogL = "This is Little ✖✖. Little ✖✖ likes dogs, bikes, and Hollywood. Little ✖✖ doesn’t really know what’s going on; they just want to play outside.";
+		private String kidDialogR = "SAFETY INSTRUCTIONS\n- Keep away from agency \n- Do not keep plugged in around personal capital. \n- Restrict units from congregating (invasion will ensue). \nWARNING: The Model M requires a significant amount of ©APITAL. This is necessary to keep units running quietly and to ensure that Black and Brown M units remain in designated levels within the ___System.";
 
 		private bool canTransition = true;
 		private float initialTextY;
@@ -94,11 +94,11 @@ public class Manager : MonoBehaviour {
 				if(i <= momDialogR.Length) {
 				  rd.text = momDialogR.Substring(0, i);
 			  }
-				if(i > 0 && i % 54 == 0) {
-					if(i <= momDialogL.Length) {
+				if(i > 0 && i % 38 == 0) {
+					if(i <= momDialogL.Length - 1) {
 						StartCoroutine("MoveLeftTextUp");
 					}
-					if(i <= momDialogR.Length) {
+					if(i <= momDialogR.Length - 5) {
 						StartCoroutine("MoveRightTextUp");
 					}
 				}
@@ -126,11 +126,11 @@ public class Manager : MonoBehaviour {
 						if(i <= dadDialogR.Length) {
 						  rd.text = dadDialogR.Substring(0, i);
 					  }
-						if(i > 0 && i % 54 == 0) {
-							if(i <= dadDialogL.Length) {
+						if(i > 0 && i % 38 == 0) {
+							if(i <= dadDialogL.Length - 1) {
 								StartCoroutine("MoveLeftTextUp");
 							}
-							if(i <= dadDialogR.Length) {
+							if(i <= dadDialogR.Length - 4) {
 								StartCoroutine("MoveRightTextUp");
 							}
 						}
@@ -157,13 +157,16 @@ IEnumerator ScrollKid() {
 		if(i <= kidDialogR.Length) {
 			rd.text = kidDialogR.Substring(0, i);
 		}
-		if(i > 0 && i % 54 == 0) {
+		if(i > 0 && i % 34 == 0) {
+			if(i <= kidDialogR.Length - 35) {
+				StartCoroutine("MoveRightTextUp");
+			}
+		}
+		if(i > 0 && i % 38 == 0) {
 			if(i <= kidDialogL.Length) {
 				StartCoroutine("MoveLeftTextUp");
 			}
-			if(i <= kidDialogR.Length) {
-				StartCoroutine("MoveRightTextUp");
-			}
+
 		}
 		if(i >= kidDialogL.Length && i >= kidDialogR.Length) {
 			canTransition = true;
